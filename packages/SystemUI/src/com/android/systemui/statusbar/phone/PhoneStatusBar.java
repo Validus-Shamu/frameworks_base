@@ -2147,6 +2147,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (wm != null) {
             BitmapDrawable wallpaperDrawable = (BitmapDrawable) wm.getDrawable();
             if (wallpaperDrawable != null) {
+				backdropBitmap = wm.getKeyguardBitmap();
                 wallpaperBitmap = wallpaperDrawable.getBitmap();
             }
         }

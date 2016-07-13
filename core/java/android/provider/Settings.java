@@ -7612,6 +7612,18 @@ public final class Settings {
          */
         public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
 
+         /**
+         * Pulse Fudge Factor
+         * @hide
+         */
+        public static final String PULSE_SOLID_FUDGE_FACTOR = "pulse_solid_fudge_factor";
+        
+         /**
+         * Pulse Lavamp Animation Speed
+         * @hide
+         */
+        public static final String PULSE_LAVALAMP_SOLID_SPEED = "lava_lamp_solid_speed";
+
         /**
          * This are the settings to be backed up.
          *

@@ -767,7 +767,8 @@ public final class PowerManagerService extends SystemService
         mTheaterModeEnabled = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.THEATER_MODE_ON, 0) == 1;
         mProximityWakeEnabled = Settings.System.getInt(resolver,
-                Settings.System.PROXIMITY_ON_WAKE, 0) == 1;
+                Settings.System.PROXIMITY_ON_WAKE,
+                mProximityWakeEnabledByDefaultConfig ? 1 : 0) == 1;
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
@@ -3464,30 +3465,6 @@ public final class PowerManagerService extends SystemService
             if (mSensorManager == null) {
                 r.run();
                 return;
-            }
-            synchronized (mProximityWakeLock) {
-                mProximityWakeLock.acquire();
-                mProximityListener = new SensorEventListener() {
-                    @Override
-                    public void onSensorChanged(SensorEvent event) {
-                        cleanupProximityLocked();
-                        if (!mHandler.hasMessages(MSG_WAKE_UP)) {
-                            Slog.w(TAG, "The proximity sensor took too long, wake event already triggered!");
-                            return;
-                        }
-                        mHandler.removeMessages(MSG_WAKE_UP);
-                        float distance = event.values[0];
-                        if (distance >= PROXIMITY_NEAR_THRESHOLD ||
-                                distance >= mProximitySensor.getMaximumRange()) {
-                            r.run();
-                        }
-                    }
-
-                    @Override
-                    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
-                };
-                mSensorManager.registerListener(mProximityListener,
-                       mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
             }
             synchronized (mProximityWakeLock) {
                 mProximityWakeLock.acquire();

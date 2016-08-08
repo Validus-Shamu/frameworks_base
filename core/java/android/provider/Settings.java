@@ -4058,7 +4058,7 @@ public final class Settings {
          * Custom Spacing Between Pulse Bars
          * @hide
          */
-        public static final String PULSE_CUSTOM_DIV = "pulse_custom_div";]
+        public static final String PULSE_CUSTOM_DIV = "pulse_custom_div";
 
         /**
          * Whether to show the ticker on the status bar

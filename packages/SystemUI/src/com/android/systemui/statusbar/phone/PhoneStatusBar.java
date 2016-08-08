@@ -2155,10 +2155,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         final boolean hasBackdrop = backdropBitmap != null;
         mKeyguardShowingMedia = hasBackdrop;
 
-        if (keyguardVisible) {
+  //      if (keyguardVisible) {
             // always use current backdrop to color eq
-            mVisualizerView.setBitmap(hasBackdrop ? backdropBitmap : wallpaperBitmap);
-        }
+   //         mVisualizerView.setBitmap(hasBackdrop ? backdropBitmap : wallpaperBitmap);
+     //   }
 
         if ((hasBackdrop || DEBUG_MEDIA_FAKE_ARTWORK)
                 && (mState == StatusBarState.KEYGUARD || mState == StatusBarState.SHADE_LOCKED)) {
@@ -4953,51 +4953,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         updateDozingState();
     }
 
-<<<<<<< HEAD
-=======
-    public void setBackgroundBitmap(Bitmap bmp) {
-        if (bmp != null) {
-            if (mBlurRadius != 0) {
-                mBlurredImage = blurBitmap(bmp, mBlurRadius);
-            } else {
-                mBlurredImage = bmp;
-            }
-        } else {
-            mBlurredImage = null;
-        }
-
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                updateMediaMetaData(true);
-            }
-        });
-    }
-
-    private Bitmap blurBitmap(Bitmap bmp, int radius) {
-        Bitmap out = Bitmap.createBitmap(bmp);
-        RenderScript rs = RenderScript.create(mContext);
-
-        Allocation input = Allocation.createFromBitmap(
-                rs, bmp, MipmapControl.MIPMAP_NONE, Allocation.USAGE_SCRIPT);
-        Allocation output = Allocation.createTyped(rs, input.getType());
-
-        ScriptIntrinsicBlur script = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
-        script.setInput(input);
-        script.setRadius(radius);
-        script.forEach(output);
-
-        output.copyTo(out);
-
-        rs.destroy();
-        return out;
-    }
-
 	public VisualizerView getVisualizer() {
         return mVisualizerView;
     }
 
->>>>>>> 5d9fd6b... Lock screen: Add music visualizer, (1/2):
     private final class ShadeUpdates {
         private final ArraySet<String> mVisibleNotifications = new ArraySet<String>();
         private final ArraySet<String> mNewVisibleNotifications = new ArraySet<String>();

@@ -2155,10 +2155,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         final boolean hasBackdrop = backdropBitmap != null;
         mKeyguardShowingMedia = hasBackdrop;
 
-  //      if (keyguardVisible) {
-            // always use current backdrop to color eq
-   //         mVisualizerView.setBitmap(hasBackdrop ? backdropBitmap : wallpaperBitmap);
-     //   }
+        boolean keyguardVisible = (mState != StatusBarState.SHADE);
+
+        if (!mKeyguardFadingAway && keyguardVisible && mScreenOn) {
+            mVisualizerView.setVisible(true);
+            mVisualizerView.setPlaying(mMediaController != null
+                    && mMediaController.getPlaybackState() != null
+                    && mMediaController.getPlaybackState().getState()
+                            == PlaybackState.STATE_PLAYING);
+        }
 
         if ((hasBackdrop || DEBUG_MEDIA_FAKE_ARTWORK)
                 && (mState == StatusBarState.KEYGUARD || mState == StatusBarState.SHADE_LOCKED)) {

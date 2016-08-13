@@ -20,4 +20,21 @@
     <color name="notification_action_color_filter">#9F9F9F</color>
     <!-- Notification action button/txt -->
     <color name="secondary_text_material_light">#A2A2A2</color>
+
+    <!-- System - Accents -->
+    <color name="accent_material_light">#009688</color>
+    <color name="accent_material_dark">#009688</color>
+ 
+    <!-- StatusBar Expanded - User Icons -->
+    <color name="user_icon_1">#009688</color>
+    <color name="user_icon_2">#009688</color>
+    <color name="user_icon_3">#009688</color>
+    <color name="user_icon_4">#009688</color>
+    <color name="user_icon_5">#009688</color>
+    <color name="user_icon_6">#009688</color>
+    <color name="user_icon_7">#009688</color>
+    <color name="user_icon_8">#009688</color>
+    <color name="user_icon_default_gray">#009688</color>
+    <color name="user_icon_default_white">#009688</color>
+
 </resources>

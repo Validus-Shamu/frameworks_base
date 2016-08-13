@@ -390,7 +390,7 @@
     <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
 
     <!-- Boolean indicating whether Hotspot 2.0/Passpoint and ANQP queries is enabled -->
-    <bool translatable="false" name="config_wifi_hotspot2_enabled">false</bool>
+    <bool translatable="false" name="config_wifi_hotspot2_enabled">true</bool>
 
     <!-- Device type information conforming to Annex B format in WiFi Direct specification.
          The default represents a dual-mode smartphone -->
@@ -508,6 +508,12 @@
 
     <!-- Integer indicating RSSI boost given to current network -->
     <integer translatable="false" name="config_wifi_framework_current_network_boost">25</integer>
+
+    <!-- Integer indicating the number of selective channel scan when Wifi turn on -->
+    <integer translatable="false" name="config_max_initial_scans_on_selective_channels">2</integer>
+
+    <!-- Integer indicating the interval for selective channel scan when Wifi turn on -->
+    <integer translatable="false" name="config_initial_saved_channel_scan_interval">2000</integer>
 
     <!-- Integer indicating how to handle beacons with uninitialized RSSI value of 0 -->
     <integer translatable="false" name="config_wifi_framework_scan_result_rssi_level_patchup_value">-85</integer>
@@ -2467,4 +2473,10 @@
     <bool name="config_proximityCheckOnWake">false</bool>
     <integer name="config_proximityCheckTimeout">250</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
+
+
+    <bool name="config_regional_hotspot_show_maximum_connection_enable">false</bool>
+    <bool name="config_regional_hotspot_show_broadcast_ssid_checkbox">false</bool>
+    <bool name="config_regional_hotspot_show_notification_when_turn_on">false</bool>
+    <bool name="config_passpoint_setting_on">false</bool>
 </resources>
